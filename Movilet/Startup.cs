@@ -50,7 +50,8 @@ namespace Movilet
             services.AddCors();
             services.AddSingleton<IMoviletDatabaseSettings>(sp =>
                sp.GetRequiredService<IOptions<MoviletDatabaseSettings>>().Value);
-            services.AddScoped<UsuarioService>();
+                services.AddScoped<UsuarioService>();
+                services.AddScoped<DocumentoService>();
 
 
 
