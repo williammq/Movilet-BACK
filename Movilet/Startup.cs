@@ -52,6 +52,7 @@ namespace Movilet
                sp.GetRequiredService<IOptions<MoviletDatabaseSettings>>().Value);
                 services.AddScoped<UsuarioService>();
                 services.AddScoped<DocumentoService>();
+                services.AddScoped<PacienteService>();
 
 
 

@@ -31,14 +31,14 @@ namespace Movilet.Entities
         [BsonElement("telefonosreferencias")]
         public List<Telefonos> telefonosReferencia { get; set; }
         [BsonElement("motivoingreso")]
-        public List<Telefonos> motivoIngreso { get; set; }
+        public String motivoIngreso { get; set; }
         [BsonElement("fechaingreso")]
-        public string fechaIngreso { get; set; }
+        public DateTime fechaIngreso { get; set; }
     }
     public class Telefonos
     {
         public string numero { get; set; }
-        public string referenteFamiliar { get; set; }
+        public string referentefamiliar { get; set; }
         public string parentesco { get; set; }
 
     }
