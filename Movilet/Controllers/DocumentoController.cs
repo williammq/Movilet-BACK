@@ -14,5 +14,5 @@ namespace Movilet.Controllers
     [ApiController]
     public class DocumentoController : ControllerBase
     {
-      
+    }
 }
