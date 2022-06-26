@@ -11,9 +11,10 @@ using Movilet.Services;
 
 namespace Movilet.Entities
 {
-    [BsonDiscriminator(RootClass =true)]
+    [BsonDiscriminator(RootClass = true)]
     [BsonKnownTypes(
-       typeof(InformeEducativoInicial)
+       typeof(InformeEducativoInicial),
+        typeof(InformeSeguimientoEducativo)
         )]
     public class Documento
     {
@@ -51,6 +52,42 @@ namespace Movilet.Entities
     {
         public ContenidoInformeEducativoInicial contenido { get; set; } = new ContenidoInformeEducativoInicial();
     }
+    public class ContenidoInformeSeguimientoEducativo
+    {
+
+        [BsonElement("modalidad")]
+        public String modalidad { get; set; }
+        [BsonElement("nivel")]
+        public String nivel { get; set; }
+        [BsonElement("grado")]
+        public String grado { get; set; }
+        [BsonElement("añoescolar")]
+        public String añoEscolar { get; set; }
+        [BsonElement("trimestre")]
+        public List<Trimestre> trimestre { get; set; }
+        //[BsonElement("firmas")]
+        //public List<Firmas> firmas { get; set; }
+        [BsonElement("codigodocumento")]
+        public String codigoDocumento { get; set; }
+
+    }
+    public class Trimestre
+    {
+        public String orden { get; set; }
+        public List<Puntajes> puntajes { get; set; }
+        public String analisiseducativo { get; set; }
+        public String recomendaciones { get; set; }
+
+    }
+    public class Puntajes
+    {
+        public String area { get; set; }
+        public String promedio { get; set; }
+    }
+    public class InformeSeguimientoEducativo : Documento
+    {
+        public ContenidoInformeSeguimientoEducativo contenido { get; set; } = new ContenidoInformeSeguimientoEducativo();
+    }
     public class HistorialContenido
     {
         public int version { get; set; }
@@ -62,10 +99,5 @@ namespace Movilet.Entities
         public string url { get; set; }
         public string titulo { get; set; }
     }
-    public class ContenidoInformePrueba
-    {
-
-
-
-    }
-}   
+}
+    

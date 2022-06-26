@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\Movilet\\Movilet\\Movilet.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\Movilet-Back\\Movilet\\Movilet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\Movilet\\Movilet\\Movilet.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\Movilet-Back\\Movilet\\Movilet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Movilet\\Movilet\\Movilet.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Movilet-Back\\Movilet\\Movilet.csproj",
         "projectName": "Movilet",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Movilet\\Movilet\\Movilet.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Movilet-Back\\Movilet\\Movilet.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Movilet\\Movilet\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Movilet-Back\\Movilet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MongoDB.Driver": {
               "target": "Package",
@@ -65,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
