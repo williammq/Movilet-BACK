@@ -103,3 +103,4 @@ C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.cspr
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.dll
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.pdb
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.genruntimeconfig.cache
+C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.csproj.AssemblyReference.cache

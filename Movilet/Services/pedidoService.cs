@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Movilet.Entities;
-
+using MongoDB.Bson;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization.Attributes;
 namespace Movilet.Services
 {
     public class pedidoService
