@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Movilet.Services;
 using Movilet.Entities;
+using System.Text.Json;
 
 namespace Movilet.Controllers
 {
@@ -19,9 +20,19 @@ namespace Movilet.Controllers
             _pedidoservice = pedidoservice;
         }
         [HttpPost("Registrar")]
-        public async Task<ActionResult<pedido>> Registrar([FromBody] pedido pedido)
+        public async Task<ActionResult<pedido>> Registrar([FromBody] string pedido)
         {
-            pedido p = _pedidoservice.Registrar(pedido);
+            var pgenerico= JsonSerializer.Deserialize<pedido>(pedido);
+            switch (pgenerico.tipo_servicio)
+            {
+                case "Talonario": pgenerico = JsonSerializer.Deserialize<pedidoTalonario>(pedido); break;
+                case "Revista": pgenerico = JsonSerializer.Deserialize<pedidoRevista>(pedido); break;
+                case "Tarjeta de Presentacion": pgenerico = JsonSerializer.Deserialize<pedidoTarjetaPresentacion>(pedido); break;
+                case "Carpeta": pgenerico = JsonSerializer.Deserialize<pedidoCarpeta>(pedido); break;
+                case "Triptico": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(pedido); break;
+                default:pgenerico= JsonSerializer.Deserialize<pedido>(pedido); break;
+            }
+            pedido p = _pedidoservice.Registrar(pgenerico);
             return p;
         }
     }

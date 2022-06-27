@@ -8,13 +8,6 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Movilet.Entities
 {
-    [BsonDiscriminator(RootClass = true)]
-    [BsonKnownTypes(
-        typeof(pedidoTalonario),
-        typeof(pedidoRevista),
-        typeof(pedidoCarpeta),
-        typeof(pedidoTarjetaPresentacion),
-        typeof(pedidoTriptico))]
     public class pedido
     {
         [BsonId]
@@ -37,11 +30,8 @@ namespace Movilet.Entities
     }
     public class talonario 
     {
-        [BsonElement("microperforado")]
         public string microperforado { get; set; }
-        [BsonElement("numerado")]
         public Boolean numerado { get; set; }
-        [BsonElement("tipo_encuadernado")]
         public string tipo_encuadernado { get; set; }
     }
     public class pedidoTalonario : pedido

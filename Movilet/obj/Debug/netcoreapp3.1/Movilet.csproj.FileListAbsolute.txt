@@ -89,7 +89,6 @@ C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\bin\Debug\netcoreapp3.1\Swashbuckle.
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
-C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.csproj.AssemblyReference.cache
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.AssemblyInfoInputs.cache
 C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\obj\Debug\netcoreapp3.1\Movilet.AssemblyInfo.cs
