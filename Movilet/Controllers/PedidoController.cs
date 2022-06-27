@@ -19,9 +19,8 @@ namespace Movilet.Controllers
             _pedidoservice = pedidoservice;
         }
         [HttpPost("Registrar")]
-        public async Task<ActionResult<pedido>> Registrar(pedido pedido)
+        public async Task<ActionResult<pedido>> Registrar([FromBody] pedido pedido)
         {
-
             pedido p = _pedidoservice.Registrar(pedido);
             return p;
         }
