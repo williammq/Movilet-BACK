@@ -10,8 +10,8 @@ namespace Movilet.Entities
 {
     [BsonDiscriminator(RootClass = true)]
     [BsonKnownTypes(
-          typeof(talonario),
-          typeof(revista), 
+          typeof(pedidoTalonario),
+          typeof(pedidoRevista), 
           typeof(tarjetaPresentacion),
           typeof(carpeta),
           typeof(triptico))]
@@ -35,34 +35,54 @@ namespace Movilet.Entities
         [BsonElement("tamanio_hoja")]
         public string tamanio_hoja { get; set; }
     }
-    public class talonario : pedido
+    public class talonario 
     {
         public string microperforado { get; set; }
         public Boolean numerado { get; set; }
         public string tipo_encuadernado { get; set; }
     }
-    public class revista : pedido
+    public class pedidoTalonario : pedido
+    {
+        public talonario requisitos { get; set; } = new talonario();
+    }
+    public class revista
     {
         public int numero_paginas { get; set; }
         public Boolean portada_plastificada { get; set; }
         public string tipo_hoja_portada { get; set; }
         public string tipo_hoja_paginas { get; set; }
     }
-    public class tarjetaPresentacion : pedido
+    public class pedidoRevista : pedido
+    {
+        public revista requisitos { get; set; } = new revista();
+    }
+    public class tarjetaPresentacion
     {
         public string tipo_hoja { get; set; }
         public Boolean plastificado { get; set; }
         public Boolean esquinas { get; set; }
     }
-    public class carpeta : pedido
+    public class pedidoTarjetaPresentacion: pedido
+    {
+        public tarjetaPresentacion requisitos { get; set; } = new tarjetaPresentacion();
+    }
+    public class carpeta
     {
         public Boolean plastificado { get; set; }
         public string tipo_hoja { get; set; }
     }
-    public class triptico : pedido
+    public class pedidoCarpeta : pedido
+    {
+        public carpeta requisitos { get; set; } = new carpeta();
+    }
+    public class triptico
     {
         public Boolean plegado { get; set; }
         public string tipo_plegado { get; set; }
         public string tipo_hoja { get; set; }
+    }
+    public class pedidoTriptico : pedido
+    {
+        public triptico requisitos { get; set; } = new triptico();
     }
 }
