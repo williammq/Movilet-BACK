@@ -53,6 +53,7 @@ namespace Movilet
                 services.AddScoped<UsuarioService>();
                 services.AddScoped<DocumentoService>();
                 services.AddScoped<PacienteService>();
+                services.AddScoped<pedidoService>();
 
 
 
