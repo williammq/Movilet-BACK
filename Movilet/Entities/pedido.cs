@@ -25,6 +25,8 @@ namespace Movilet.Entities
         public string numero_celular { get; set; }
         [BsonElement("correo")]
         public string correo { get; set; }
+        [BsonElement("fecha_registro")]
+        public DateTime fecha_registro { get; set; } = DateTime.Now;
         [BsonElement("tipo_servicio")]
         public string tipo_servicio { get; set; }
         [BsonElement("tipo_impresion")]
@@ -42,7 +44,7 @@ namespace Movilet.Entities
     }
     public class pedidoTalonario : pedido
     {
-        public talonario requisitos { get; set; } = new talonario();
+        public talonario requisitos { get; set; }
     }
     public class revista
     {
@@ -53,7 +55,7 @@ namespace Movilet.Entities
     }
     public class pedidoRevista : pedido
     {
-        public revista requisitos { get; set; } = new revista();
+        public revista requisitos { get; set; }
     }
     public class tarjetaPresentacion
     {
@@ -63,7 +65,7 @@ namespace Movilet.Entities
     }
     public class pedidoTarjetaPresentacion: pedido
     {
-        public tarjetaPresentacion requisitos { get; set; } = new tarjetaPresentacion();
+        public tarjetaPresentacion requisitos { get; set; }
     }
     public class carpeta
     {
@@ -72,7 +74,7 @@ namespace Movilet.Entities
     }
     public class pedidoCarpeta : pedido
     {
-        public carpeta requisitos { get; set; } = new carpeta();
+        public carpeta requisitos { get; set; }
     }
     public class triptico
     {
@@ -82,6 +84,6 @@ namespace Movilet.Entities
     }
     public class pedidoTriptico : pedido
     {
-        public triptico requisitos { get; set; } = new triptico();
+        public triptico requisitos { get; set; }
     }
 }

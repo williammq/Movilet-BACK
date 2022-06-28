@@ -20,26 +20,22 @@ namespace Movilet.Controllers
             _pedidoservice = pedidoservice;
         }
         [HttpPost("Registrar")]
-        public async Task<ActionResult<pedido>> Registrar([FromBody] string pedido)
+        public async Task<IActionResult> Registrar([FromBody] string pedido)
         {
-            var pgenerico= JsonSerializer.Deserialize<pedido>(pedido);
-            switch (pgenerico.tipo_servicio)
-            {
-                case "Talonario": pgenerico = JsonSerializer.Deserialize<pedidoTalonario>(pedido); break;
-                case "Revista": pgenerico = JsonSerializer.Deserialize<pedidoRevista>(pedido); break;
-                case "Tarjeta de Presentacion": pgenerico = JsonSerializer.Deserialize<pedidoTarjetaPresentacion>(pedido); break;
-                case "Carpeta": pgenerico = JsonSerializer.Deserialize<pedidoCarpeta>(pedido); break;
-                case "Triptico": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(pedido); break;
-                default:pgenerico= JsonSerializer.Deserialize<pedido>(pedido); break;
-            }
-            pedido p = _pedidoservice.Registrar(pgenerico);
-            return p;
+            var p = _pedidoservice.Registrar(pedido);
+            return Ok(p);
         }
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
             var lst = _pedidoservice.GetAll();
             return Ok(lst);
+        }
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var result = _pedidoservice.GetById(id);
+            return Ok(result);
         }
     }
 }
