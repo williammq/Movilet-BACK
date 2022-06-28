@@ -27,6 +27,8 @@ namespace Movilet.Entities
         public string correo { get; set; }
         [BsonElement("fecha_registro")]
         public DateTime fecha_registro { get; set; } = DateTime.Now;
+        [BsonElement("fecha_entrega")]
+        public DateTime fecha_entrega { get; set; }
         [BsonElement("tipo_servicio")]
         public string tipo_servicio { get; set; }
         [BsonElement("tipo_impresion")]
