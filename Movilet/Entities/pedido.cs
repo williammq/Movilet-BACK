@@ -50,17 +50,17 @@ namespace Movilet.Entities
     {
         public talonario requisitos { get; set; }
     }
-    public class revista
-    {
-        public int numero_paginas { get; set; }
-        public Boolean portada_plastificada { get; set; }
-        public string tipo_hoja_portada { get; set; }
-        public string tipo_hoja_paginas { get; set; }
-    }
-    public class pedidoRevista : pedido
-    {
-        public revista requisitos { get; set; }
-    }
+    //public class revista
+    //{
+    //    public int numero_paginas { get; set; }
+    //    public Boolean portada_plastificada { get; set; }
+    //    public string tipo_hoja_portada { get; set; }
+    //    public string tipo_hoja_paginas { get; set; }
+    //}
+    //public class pedidoRevista : pedido
+    //{
+    //    public revista requisitos { get; set; }
+    //}
     public class tarjetaPresentacion
     {
         public string tipo_hoja { get; set; }
