@@ -35,6 +35,8 @@ namespace Movilet.Entities
         public int cantidad_ejemplares { get; set; }
         [BsonElement("tamanio_hoja")]
         public string tamanio_hoja { get; set; }
+        [BsonElement("estado")]
+        public string estado { get; set; }
     }
     public class talonario 
     {
