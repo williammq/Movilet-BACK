@@ -35,5 +35,11 @@ namespace Movilet.Controllers
             pedido p = _pedidoservice.Registrar(pgenerico);
             return p;
         }
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var lst = _pedidoservice.GetAll();
+            return Ok(lst);
+        }
     }
 }

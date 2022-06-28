@@ -7,6 +7,8 @@ using Movilet.Entities;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization;
+
 namespace Movilet.Services
 {
     public class pedidoService
@@ -22,6 +24,12 @@ namespace Movilet.Services
         {
             _pedido.InsertOne(p);
             return p;
+        }
+        public List<pedido> GetAll()
+        {
+            List<pedido> pedidos = new List<pedido>();
+            pedidos = _pedido.AsQueryable().ToList();
+            return pedidos;
         }
     }
 }
