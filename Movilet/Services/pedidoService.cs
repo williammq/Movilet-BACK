@@ -27,7 +27,7 @@ namespace Movilet.Services
             switch (pgenerico.tipo_servicio)
             {
                 case "Talonario": pgenerico = JsonSerializer.Deserialize<pedidoTalonario>(p); break;
-                case "Revista": pgenerico = JsonSerializer.Deserialize<pedidoRevista>(p); break;
+                //case "Revista": pgenerico = JsonSerializer.Deserialize<pedidoRevista>(p); break;
                 case "Tarjeta de Presentacion": pgenerico = JsonSerializer.Deserialize<pedidoTarjetaPresentacion>(p); break;
                 case "Carpeta": pgenerico = JsonSerializer.Deserialize<pedidoCarpeta>(p); break;
                 case "Triptico": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(p); break;
