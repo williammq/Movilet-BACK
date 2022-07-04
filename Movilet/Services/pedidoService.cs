@@ -15,22 +15,23 @@ namespace Movilet.Services
     public class pedidoService
     {
         private readonly IMongoCollection<pedido> _pedido;
+        private readonly IMongoCollection<producto> _producto;
         public pedidoService(IMoviletDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             _pedido = database.GetCollection<pedido>("pedido");
+            _producto = database.GetCollection<producto>("producto");
         }
         public pedido Registrar(string p)
         {
             var pgenerico = JsonSerializer.Deserialize<pedido>(p);
-            switch (pgenerico.tipo_servicio)
+            switch (pgenerico.producto)
             {
-                case "Talonario": pgenerico = JsonSerializer.Deserialize<pedidoTalonario>(p); break;
-                //case "Revista": pgenerico = JsonSerializer.Deserialize<pedidoRevista>(p); break;
-                case "Tarjeta de Presentacion": pgenerico = JsonSerializer.Deserialize<pedidoTarjetaPresentacion>(p); break;
-                case "Carpeta": pgenerico = JsonSerializer.Deserialize<pedidoCarpeta>(p); break;
-                case "Triptico": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(p); break;
+                case "62c269314a16a2fae57841c9": pgenerico = JsonSerializer.Deserialize<pedidoTalonario>(p); break;
+                case "62c268964a16a2fae57841c7": pgenerico = JsonSerializer.Deserialize<pedidoCarta>(p); break;
+                case "62c268d94a16a2fae57841c8": pgenerico = JsonSerializer.Deserialize<pedidoTarjetaPresentacion>(p); break;
+                case "62c266644a16a2fae57841c4": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(p); break;
                 default:pgenerico= JsonSerializer.Deserialize<pedido>(p); break;
             }
             _pedido.InsertOne(pgenerico);
@@ -47,6 +48,10 @@ namespace Movilet.Services
             pedido p = new pedido();
             p = _pedido.Find(x=>x.id==id).FirstOrDefault();
             return p;
+        }
+        public List<producto> GetAllProducto()
+        {
+            return _producto.Find(x => true).ToList();
         }
     }
 }

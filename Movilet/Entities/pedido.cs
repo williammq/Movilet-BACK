@@ -10,8 +10,8 @@ namespace Movilet.Entities
 {
     [BsonDiscriminator(RootClass = true)]
     [BsonKnownTypes(typeof(pedidoTalonario),
-                    typeof(pedidoCarpeta),
                     typeof(pedidoTarjetaPresentacion),
+                    typeof(pedidoCarta),
                     typeof(pedidoTriptico))]
     public class pedido
     {
@@ -26,10 +26,8 @@ namespace Movilet.Entities
         public string correo { get; set; }
         [BsonElement("fecha_registro")]
         public DateTime fecha_registro { get; set; } = DateTime.Now;
-        [BsonElement("fecha_entrega")]
-        public DateTime fecha_entrega { get; set; }
-        [BsonElement("tipo_servicio")]
-        public string tipo_servicio { get; set; }
+        [BsonElement("producto")]
+        public string producto { get; set; }
         [BsonElement("tipo_impresion")]
         public string tipo_impresion { get; set; }
         [BsonElement("cantidad_ejemplares")]
@@ -38,6 +36,10 @@ namespace Movilet.Entities
         public string tamanio_hoja { get; set; }
         [BsonElement("estado")]
         public string estado { get; set; }
+        [BsonElement("tipo_hoja")]
+        public string tipo_hoja { get; set; }
+        [BsonElement("archivos")]
+        public List<string> archivos { get; set; }
     }
     public class talonario 
     {
@@ -49,44 +51,31 @@ namespace Movilet.Entities
     {
         public talonario requisitos { get; set; }
     }
-    //public class revista
-    //{
-    //    public int numero_paginas { get; set; }
-    //    public Boolean portada_plastificada { get; set; }
-    //    public string tipo_hoja_portada { get; set; }
-    //    public string tipo_hoja_paginas { get; set; }
-    //}
-    //public class pedidoRevista : pedido
-    //{
-    //    public revista requisitos { get; set; }
-    //}
     public class tarjetaPresentacion
     {
-        public string tipo_hoja { get; set; }
-        public Boolean plastificado { get; set; }
+        public Boolean plegado { get; set; }
         public Boolean esquinas { get; set; }
     }
     public class pedidoTarjetaPresentacion: pedido
     {
         public tarjetaPresentacion requisitos { get; set; }
     }
-    public class carpeta
-    {
-        public Boolean plastificado { get; set; }
-        public string tipo_hoja { get; set; }
-    }
-    public class pedidoCarpeta : pedido
-    {
-        public carpeta requisitos { get; set; }
-    }
     public class triptico
     {
         public Boolean plegado { get; set; }
         public string tipo_plegado { get; set; }
-        public string tipo_hoja { get; set; }
     }
     public class pedidoTriptico : pedido
     {
         public triptico requisitos { get; set; }
+    }
+    public class carta_comida
+    {
+        public Boolean plegado { get; set; }
+        public string tipo_plegado { get; set; }
+    }
+    public class pedidoCarta : pedido
+    {
+        public carta_comida requisitos { get; set; }
     }
 }

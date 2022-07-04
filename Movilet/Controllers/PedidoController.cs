@@ -37,5 +37,11 @@ namespace Movilet.Controllers
             var result = _pedidoservice.GetById(id);
             return Ok(result);
         }
+        [HttpGet("GetAllProducto")]
+        public async Task<IActionResult> GetAllProducto()
+        {
+            var lst = _pedidoservice.GetAllProducto();
+            return Ok(lst);
+        }
     }
 }
