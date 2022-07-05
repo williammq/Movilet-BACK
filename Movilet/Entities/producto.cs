@@ -14,5 +14,7 @@ namespace Movilet.Entities
         public string id { get; set; }
         [BsonElement("nombre")]
         public string nombre { get; set; }
+        [BsonElement("url_imagen")]
+        public string url_imagen { get; set; }
     }
 }
