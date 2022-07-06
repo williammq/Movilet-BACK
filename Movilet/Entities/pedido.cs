@@ -11,7 +11,8 @@ namespace Movilet.Entities
     [BsonDiscriminator(RootClass = true)]
     [BsonKnownTypes(typeof(pedidoTalonario),
                     typeof(pedidoTarjetaPresentacion),
-                    typeof(pedidoCarta),
+                    typeof(pedidoCartel),
+                    //typeof(pedidoCarta),
                     typeof(pedidoTriptico))]
     public class pedido
     {
@@ -43,7 +44,7 @@ namespace Movilet.Entities
     }
     public class talonario 
     {
-        public string microperforado { get; set; }
+        public Boolean copiativo { get; set; }
         public Boolean numerado { get; set; }
         public string tipo_encuadernado { get; set; }
     }
@@ -64,6 +65,8 @@ namespace Movilet.Entities
     }
     public class triptico
     {
+        public Boolean plastificado { get; set; }
+        public string acabado_plastificado { get; set; }
         public Boolean plegado { get; set; }
         public string tipo_plegado { get; set; }
     }
@@ -71,15 +74,24 @@ namespace Movilet.Entities
     {
         public triptico requisitos { get; set; }
     }
-    public class carta_comida
+    public class Cartel
     {
         public Boolean plastificado { get; set; }
         public string acabado_plastificado { get; set; }
-        public Boolean plegado { get; set; }
-        public string tipo_plegado { get; set; }
     }
-    public class pedidoCarta : pedido
+    public class pedidoCartel : pedido
     {
-        public carta_comida requisitos { get; set; }
+        public Cartel requisitos { get; set; }
     }
+    //public class carta_comida
+    //{
+    //    public Boolean plastificado { get; set; }
+    //    public string acabado_plastificado { get; set; }
+    //    public Boolean plegado { get; set; }
+    //    public string tipo_plegado { get; set; }
+    //}
+    //public class pedidoCarta : pedido
+    //{
+    //    public carta_comida requisitos { get; set; }
+    //}
 }
