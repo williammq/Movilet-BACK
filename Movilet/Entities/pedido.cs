@@ -44,7 +44,7 @@ namespace Movilet.Entities
     }
     public class talonario 
     {
-        public Boolean copiativo { get; set; }
+        public Int32 copias { get; set; }
         public Boolean numerado { get; set; }
         public string tipo_encuadernado { get; set; }
     }
@@ -56,7 +56,6 @@ namespace Movilet.Entities
     {
         public Boolean plastificado { get; set; }
         public string acabado_plastificado { get; set; }
-        public Boolean plegado { get; set; }
         public Boolean esquinas { get; set; }
     }
     public class pedidoTarjetaPresentacion: pedido
