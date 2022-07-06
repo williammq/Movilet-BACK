@@ -30,6 +30,7 @@ namespace Movilet.Services
             {
                 case "62c269314a16a2fae57841c9": pgenerico = JsonSerializer.Deserialize<pedidoTalonario>(p); break;
                 //case "62c268964a16a2fae57841c7": pgenerico = JsonSerializer.Deserialize<pedidoCarta>(p); break;
+                case "62c50eec4b00d872a14edf80": pgenerico = JsonSerializer.Deserialize<pedidoCartel>(p); break;
                 case "62c268d94a16a2fae57841c8": pgenerico = JsonSerializer.Deserialize<pedidoTarjetaPresentacion>(p); break;
                 case "62c266644a16a2fae57841c4": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(p); break;
                 default:pgenerico= JsonSerializer.Deserialize<pedido>(p); break;
