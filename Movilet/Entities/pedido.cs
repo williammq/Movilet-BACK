@@ -53,6 +53,8 @@ namespace Movilet.Entities
     }
     public class tarjetaPresentacion
     {
+        public Boolean plastificado { get; set; }
+        public string acabado_plastificado { get; set; }
         public Boolean plegado { get; set; }
         public Boolean esquinas { get; set; }
     }
@@ -71,6 +73,8 @@ namespace Movilet.Entities
     }
     public class carta_comida
     {
+        public Boolean plastificado { get; set; }
+        public string acabado_plastificado { get; set; }
         public Boolean plegado { get; set; }
         public string tipo_plegado { get; set; }
     }
