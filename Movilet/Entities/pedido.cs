@@ -33,8 +33,8 @@ namespace Movilet.Entities
         public string tipo_impresion { get; set; }
         [BsonElement("cantidad_ejemplares")]
         public int cantidad_ejemplares { get; set; }
-        [BsonElement("tamanio_hoja")]
-        public string tamanio_hoja { get; set; }
+        [BsonElement("tamanio")]
+        public string tamanio { get; set; }
         [BsonElement("estado")]
         public string estado { get; set; }
         [BsonElement("tipo_hoja")]
