@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Movilet.Services;
 using Movilet.Entities;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace Movilet.Controllers
 {
@@ -20,9 +21,9 @@ namespace Movilet.Controllers
             _pedidoservice = pedidoservice;
         }
         [HttpPost("Registrar")]
-        public async Task<IActionResult> Registrar([FromBody] string pedido)
+        public async Task<IActionResult> Registrar(JsonElement pg)
         {
-            var p = _pedidoservice.Registrar(pedido);
+            var p = _pedidoservice.Registrar(pg.ToString());
             return Ok(p);
         }
         [HttpGet("GetAll")]
