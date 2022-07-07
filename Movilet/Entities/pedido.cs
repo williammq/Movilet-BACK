@@ -42,6 +42,7 @@ namespace Movilet.Entities
         public string tipo_hoja { get; set; }
         [BsonElement("archivos")]
         public List<string> archivos { get; set; }
+        //public List<byte[]> archivos { get; set; }
     }
     public class talonario 
     {

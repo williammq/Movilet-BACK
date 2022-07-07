@@ -10,6 +10,8 @@ using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Movilet.Services
 {
@@ -17,12 +19,16 @@ namespace Movilet.Services
     {
         private readonly IMongoCollection<pedido> _pedido;
         private readonly IMongoCollection<producto> _producto;
-        public pedidoService(IMoviletDatabaseSettings settings)
+        private readonly IHostingEnvironment _enviroment;
+        private readonly string contentPath="";
+        public pedidoService(IMoviletDatabaseSettings settings, IHostingEnvironment env)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             _pedido = database.GetCollection<pedido>("pedido");
             _producto = database.GetCollection<producto>("producto");
+            _enviroment = env;
+            contentPath = _enviroment.ContentRootPath;
         }
         public pedido Registrar(string p)
         {
@@ -44,8 +50,9 @@ namespace Movilet.Services
         {
             byte[] arrayBytes = Convert.FromBase64String(base64);
             string id = Guid.NewGuid().ToString();
-            System.IO.File.WriteAllBytes(@"C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\images\f_" + id+".jpg",arrayBytes);
-            return @"C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\images\f_" + id+".jpg";
+            string ruta = System.IO.Path.Combine(contentPath,"images", id + ".png");
+            System.IO.File.WriteAllBytes(ruta,arrayBytes);
+            return ruta;
         }
         public List<object> GetAll()
         {
