@@ -42,7 +42,11 @@ namespace Movilet.Services
                 case "62c266644a16a2fae57841c4": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(p); break;
                 default:pgenerico= JsonSerializer.Deserialize<pedido>(p); break;
             }
-            pgenerico.archivos[0] = GetPath(pgenerico.archivos[0]);
+            //pgenerico.archivos[0] = GetPath(pgenerico.archivos[0]);
+            for (int i=0; i < pgenerico.archivos.Count; i++)
+            {
+                pgenerico.archivos[i] = GetPath(pgenerico.archivos[i]);
+            }
             _pedido.InsertOne(pgenerico);
             return pgenerico;
         }
