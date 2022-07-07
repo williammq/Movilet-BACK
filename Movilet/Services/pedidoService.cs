@@ -36,8 +36,16 @@ namespace Movilet.Services
                 case "62c266644a16a2fae57841c4": pgenerico = JsonSerializer.Deserialize<pedidoTriptico>(p); break;
                 default:pgenerico= JsonSerializer.Deserialize<pedido>(p); break;
             }
+            pgenerico.archivos[0] = GetPath(pgenerico.archivos[0]);
             _pedido.InsertOne(pgenerico);
             return pgenerico;
+        }
+        public string GetPath(string base64)
+        {
+            byte[] arrayBytes = Convert.FromBase64String(base64);
+            string id = Guid.NewGuid().ToString();
+            System.IO.File.WriteAllBytes(@"C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\images\f_" + id+".jpg",arrayBytes);
+            return @"C:\Users\MIRKO\Desktop\Movilet-BACK\Movilet\images\f_" + id+".jpg";
         }
         public List<object> GetAll()
         {
