@@ -21,9 +21,9 @@ namespace Movilet.Controllers
             _pedidoservice = pedidoservice;
         }
         [HttpPost("Registrar")]
-        public async Task<IActionResult> Registrar(JsonElement pg)
+        public async Task<IActionResult> Registrar(JsonElement json)
         {
-            var p = _pedidoservice.Registrar(pg.ToString());
+            var p = _pedidoservice.Registrar(json.ToString());
             return Ok(p);
         }
         [HttpGet("GetAll")]
