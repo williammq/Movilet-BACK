@@ -28,14 +28,20 @@ namespace Movilet.Entities
         [BsonElement("estado")]
         public string estado { get; set; }
         [BsonElement("productos")]
-        public List<ProductoRequisitos> productos { get; set; } = new List<ProductoRequisitos>() { new Talonario(),new TarjetaPresentación(), new Triptico()};
+        public List<productoPedido> productos { get; set; }
     }
-    [BsonDiscriminator(Required = true)]
+
+    //[BsonDiscriminator(RootClass = true)]
     [BsonKnownTypes(typeof(Talonario), typeof(TarjetaPresentación), typeof(Triptico))]
-    public class ProductoRequisitos
+    public class productoPedido
     {
+        //[BsonId]
+        //[BsonRepresentation(BsonType.ObjectId)]
+        //public string id { get; set; }
         [BsonElement("id_producto")]
         public string id_producto { get; set; }
+        //[BsonElement("id_pedido")]
+        //public string id_pedido { get; set; }
         [BsonElement("tipo_impresion")]
         public string tipo_impresion { get; set; }
         [BsonElement("cantidad_ejemplares")]
@@ -49,19 +55,19 @@ namespace Movilet.Entities
         [BsonElement("archivos")]
         public List<string> archivos { get; set; }
     }
-    public class Talonario : ProductoRequisitos
+    public class Talonario : productoPedido
     {
         public Boolean numerado { get; set; }
         public int copias { get; set; }
         public Boolean orientacion { get; set; }
     }
-    public class TarjetaPresentación : ProductoRequisitos
+    public class TarjetaPresentación : productoPedido
     {
         public Boolean plastificado { get; set; }
         public string acabado_plastificado { get; set; }
         public Boolean esquinas { get; set; }
     }
-    public class Triptico : ProductoRequisitos
+    public class Triptico : productoPedido
     {
         public Boolean plegado { get; set; }
         public string tipo_plegado { get; set; }
