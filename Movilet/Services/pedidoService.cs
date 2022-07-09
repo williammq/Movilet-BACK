@@ -21,7 +21,7 @@ namespace Movilet.Services
         private readonly IMongoCollection<pedido> _pedidos;
         private readonly IMongoCollection<BsonDocument> _pedidosBSON;
         private readonly IMongoCollection<producto> _producto;
-        private readonly IMongoCollection<productoPedido> _productoPedido;
+        //private readonly IMongoCollection<productoPedido> _productoPedido;
         private readonly IHostingEnvironment _enviroment;
         private readonly string contentPath = "";
         public pedidoService(IMoviletDatabaseSettings settings, IHostingEnvironment env)
@@ -31,7 +31,7 @@ namespace Movilet.Services
             _pedidos = database.GetCollection<pedido>("pedido");
             _pedidosBSON = database.GetCollection<BsonDocument>("pedido");
             _producto = database.GetCollection<producto>("producto");
-            _productoPedido = database.GetCollection<productoPedido>("productoPedido");
+            //_productoPedido = database.GetCollection<productoPedido>("productoPedido");
             _enviroment = env;
             contentPath = _enviroment.ContentRootPath;
         }
