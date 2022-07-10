@@ -161,5 +161,9 @@ namespace Movilet.Services
         {
             return _producto.Find(x => true).ToList();
         }
+        public producto GetProductoById(string id)
+        {
+            return _producto.Find(x => x.id==id).FirstOrDefault();
+        }
     }
 }
