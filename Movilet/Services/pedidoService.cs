@@ -105,7 +105,7 @@ namespace Movilet.Services
         }
         public List<object> GetAll()
         {
-            List<pedido> pedidosClass = new List<pedido>();
+            //List<pedido> pedidosClass = new List<pedido>();
             //List<pedido> pedidosClass = new List<pedido>();
             //List<BsonDocument> pedidosBSON = new List<BsonDocument>();
             //pedidosBSON = _pedidosBSON.Find(x => true).ToList();
@@ -141,7 +141,7 @@ namespace Movilet.Services
             //}
             
             //return _pedidos.AsQueryable().ToList().Cast<object>().ToList();
-            return _pedidos.AsQueryable().ToList().Cast<object>().ToList().Cast<object>().ToList();
+            return _pedidos.AsQueryable().ToList().Cast<object>().ToList();
         }
         public object GetById(string id)
         {
