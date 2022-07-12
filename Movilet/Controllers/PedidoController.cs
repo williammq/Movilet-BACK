@@ -56,5 +56,17 @@ namespace Movilet.Controllers
             var lst = _pedidoservice.GetProductoById(id);
             return Ok(lst);
         }
+        [HttpGet("GetAllInventario")]
+        public async Task<IActionResult> GetAllInventario()
+        {
+            var lst = _pedidoservice.GetAllInventario();
+            return Ok(lst);
+        }
+        [HttpGet("GetInventarioById")]
+        public async Task<IActionResult> GetInventarioById(string id)
+        {
+            var lst = _pedidoservice.GetInventarioById(id);
+            return Ok(lst);
+        }
     }
 }

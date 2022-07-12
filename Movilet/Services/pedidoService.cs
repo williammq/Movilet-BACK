@@ -21,6 +21,7 @@ namespace Movilet.Services
         private readonly IMongoCollection<pedido> _pedidos;
         private readonly IMongoCollection<BsonDocument> _pedidosBSON;
         private readonly IMongoCollection<producto> _producto;
+        private readonly IMongoCollection<inventario> _inventario;
         //private readonly IMongoCollection<productoPedido> _productoPedido;
         private readonly IHostingEnvironment _enviroment;
         private readonly string contentPath = "";
@@ -31,6 +32,7 @@ namespace Movilet.Services
             _pedidos = database.GetCollection<pedido>("pedido");
             _pedidosBSON = database.GetCollection<BsonDocument>("pedido");
             _producto = database.GetCollection<producto>("producto");
+            _inventario= database.GetCollection<inventario>("inventario");
             //_productoPedido = database.GetCollection<productoPedido>("productoPedido");
             _enviroment = env;
             contentPath = _enviroment.ContentRootPath;
@@ -92,6 +94,12 @@ namespace Movilet.Services
             //pgenerico.productos = productosID;
             pgenerico = JsonSerializer.Deserialize<pedido>(p);
             pgenerico.productos = productos;
+            pgenerico.productos.ForEach(delegate (productoPedido p){
+                for(int i = 0; i < p.archivos.Count; i++)
+                {
+                    p.archivos[i] = GetPath(p.archivos[i].Split(',')[1]);
+                }
+            });
             _pedidos.InsertOne(pgenerico);
             return pgenerico;
         }
@@ -164,6 +172,14 @@ namespace Movilet.Services
         public producto GetProductoById(string id)
         {
             return _producto.Find(x => x.id==id).FirstOrDefault();
+        }
+        public List<inventario> GetAllInventario()
+        {
+            return _inventario.Find(x => true).ToList();
+        }
+        public inventario GetInventarioById(string id)
+        {
+            return _inventario.Find(x => x.id==id).FirstOrDefault();
         }
     }
 }
