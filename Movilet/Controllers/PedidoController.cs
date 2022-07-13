@@ -68,5 +68,23 @@ namespace Movilet.Controllers
             var lst = _pedidoservice.GetInventarioById(id);
             return Ok(lst);
         }
+        [HttpPost("RegistrarCotizacion")]
+        public async Task<IActionResult> RegistrarCotizacion(cotizacion c)
+        {
+            var lst = _pedidoservice.RegistrarCotizacion(c);
+            return Ok(lst);
+        }
+        [HttpGet("GetCotizacionesbyPedido")]
+        public async Task<IActionResult> GetCotizacionesbyPedido(string id)
+        {
+            var lst = _pedidoservice.GetCotizacionesbyPedido(id);
+            return Ok(lst);
+        }
+        [HttpGet("GetAllCotizaciones")]
+        public async Task<IActionResult> GetAllCotizaciones()
+        {
+            var lst = _pedidoservice.GetAllCotizaciones();
+            return Ok(lst);
+        }
     }
 }

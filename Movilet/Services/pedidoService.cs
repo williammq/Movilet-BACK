@@ -22,6 +22,7 @@ namespace Movilet.Services
         private readonly IMongoCollection<BsonDocument> _pedidosBSON;
         private readonly IMongoCollection<producto> _producto;
         private readonly IMongoCollection<inventario> _inventario;
+        private readonly IMongoCollection<cotizacion> _cotizacion;
         //private readonly IMongoCollection<productoPedido> _productoPedido;
         private readonly IHostingEnvironment _enviroment;
         private readonly string contentPath = "";
@@ -33,6 +34,7 @@ namespace Movilet.Services
             _pedidosBSON = database.GetCollection<BsonDocument>("pedido");
             _producto = database.GetCollection<producto>("producto");
             _inventario= database.GetCollection<inventario>("inventario");
+            _cotizacion = database.GetCollection<cotizacion>("cotizacion_pedido");
             //_productoPedido = database.GetCollection<productoPedido>("productoPedido");
             _enviroment = env;
             contentPath = _enviroment.ContentRootPath;
@@ -180,6 +182,23 @@ namespace Movilet.Services
         public inventario GetInventarioById(string id)
         {
             return _inventario.Find(x => x.id==id).FirstOrDefault();
+        }
+        public cotizacion RegistrarCotizacion(cotizacion c)
+        {
+            var filter = Builders<pedido>.Filter.Eq("id", c.id_pedido);
+            var update = Builders<pedido>.Update
+                .Set("estado", "Cotizado");
+            _pedidos.UpdateOneAsync(filter,update);
+            _cotizacion.InsertOne(c);
+            return c;
+        }
+        public List<cotizacion> GetCotizacionesbyPedido(string idpedido)
+        {
+            return _cotizacion.Find(x=>x.id_pedido==idpedido || x.codigo==idpedido).ToList();
+        }
+        public List<cotizacion> GetAllCotizaciones()
+        {
+            return _cotizacion.Find(x => true).ToList();
         }
     }
 }
